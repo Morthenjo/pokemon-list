@@ -1,5 +1,5 @@
 async function getPokemonName() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=905");
   const data = await response.json();
   const allFetch = data.results.map((pokeLink) => fetch(pokeLink.url));
   const allResponse = await Promise.all(allFetch);
@@ -28,6 +28,7 @@ function renderPokemon(data) {
   }
   if (data.types[0].type.name && !data.types[1]) {
     li.classList.add(data.types[0].type.name);
+    li.classList.add(data.types[0].type.name + "1");
   } else {
     li.classList.add(data.types[0].type.name);
     li.classList.add(data.types[1].type.name + "1");
