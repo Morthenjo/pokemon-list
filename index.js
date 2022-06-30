@@ -20,7 +20,8 @@ function renderPokemon(data) {
   let lolUl = document.getElementById("lol");
   id.textContent = `#${data.id}`;
   image.src = data.sprites.other["official-artwork"].front_default;
-  name.textContent = data.name.charAt(0).toUpperCase() + data.name.substring(1);
+  name.textContent =
+    data.species.name.charAt(0).toUpperCase() + data.species.name.substring(1);
   type1.textContent = data.types[0].type.name;
   type2.textContent = "";
   if (data.types[1]) {
