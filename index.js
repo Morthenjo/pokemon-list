@@ -14,18 +14,27 @@ function renderPokemon(data) {
   const li = document.createElement("li");
   const id = document.createElement("p");
   const image = document.createElement("img");
-  const name = document.createElement("h2");
+  const name = document.createElement("a");
   const type1 = document.createElement("p");
   const type2 = document.createElement("p");
   let lolUl = document.getElementById("lol");
   id.textContent = `#${data.id}`;
+  id.classList.add("id");
   image.src = data.sprites.other["official-artwork"].front_default;
   name.textContent =
     data.species.name.charAt(0).toUpperCase() + data.species.name.substring(1);
-  type1.textContent = data.types[0].type.name;
+  name.href = `https://bulbapedia.bulbagarden.net/wiki/${name.textContent}_(Pok%C3%A9mon)`;
+  name.target = "_blank";
+  name.classList.add("name");
+  type1.textContent =
+    data.types[0].type.name.charAt(0).toUpperCase() +
+    data.types[0].type.name.substring(1);
+  type1.classList.add("type1");
   type2.textContent = "";
   if (data.types[1]) {
-    type2.textContent = data.types[1].type.name;
+    type2.textContent =
+      data.types[1].type.name.charAt(0).toUpperCase() +
+      data.types[1].type.name.substring(1);
   }
   if (data.types[0].type.name && !data.types[1]) {
     li.classList.add(data.types[0].type.name);
@@ -35,6 +44,7 @@ function renderPokemon(data) {
     li.classList.add(data.types[1].type.name + "1");
     console.log(li);
   }
+  type2.classList.add("type2");
   li.append(id, image, name, type1, type2);
   lolUl.append(li);
   console.log(li);
