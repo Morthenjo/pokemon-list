@@ -1,5 +1,5 @@
 async function getPokemonName() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=905");
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1200");
   const data = await response.json();
   const allFetch = data.results.map((pokeLink) => fetch(pokeLink.url));
   const allResponse = await Promise.all(allFetch);

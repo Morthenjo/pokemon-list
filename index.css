@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -10,10 +11,12 @@ body {
 
 ul {
   list-style-type: none;
-  width: 67rem;
+  width: 100%;
   display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
 }
 
 img {
@@ -27,6 +30,7 @@ li {
   width: 20rem;
   padding: 1rem;
   border: 0.1rem solid gold;
+  margin: 0 auto;
 }
 
 .bug {
