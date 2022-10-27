@@ -33,6 +33,10 @@ button.addEventListener("keyup", (e) => {
   document.querySelector("#lol").replaceChildren();
   if (e.target.value === "") {
     renderPokemon(pokemonArr[122]);
+    renderPokemon(pokemonArr[161]);
+    renderPokemon(pokemonArr[721]);
+    renderPokemon(pokemonArr[830]);
+    renderPokemon(pokemonArr[841]);
   } else
     newArr.forEach((poke) => {
       renderPokemon(poke);
