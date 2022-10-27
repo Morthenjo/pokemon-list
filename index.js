@@ -1,3 +1,5 @@
+const pokemonArr = [];
+const button = document.getElementById("search");
 async function getPokemonName() {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1200");
   const data = await response.json();
@@ -6,9 +8,21 @@ async function getPokemonName() {
   const allJSONPromise = allResponse.map((res) => res.json());
   const allData = await Promise.all(allJSONPromise);
   allData.forEach((pokemon) => {
-    renderPokemon(pokemon);
+    pokemonArr.push(pokemon);
   });
+  console.log(pokemonArr);
 }
+
+button.addEventListener("keyup", (e) => {
+  console.log(e.target.value);
+  const newArr = pokemonArr.filter((pokemon) => {
+    return pokemon.species.name.includes(e.target.value) ? true : false;
+  });
+  document.getElementById("lol").innerHTML = "";
+  newArr.forEach((poke) => {
+    renderPokemon(poke);
+  });
+});
 
 function renderPokemon(data) {
   const li = document.createElement("li");
@@ -42,12 +56,9 @@ function renderPokemon(data) {
   } else {
     li.classList.add(data.types[0].type.name);
     li.classList.add(data.types[1].type.name + "1");
-    console.log(li);
   }
   type2.classList.add("type2");
   li.append(id, image, name, type1, type2);
   lolUl.append(li);
-  console.log(li);
 }
-
 getPokemonName();

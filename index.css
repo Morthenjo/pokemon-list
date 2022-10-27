@@ -36,10 +36,7 @@ ul {
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
-}
-
-img {
-  height: 7rem;
+  margin-top: 7rem;
 }
 
 li {
@@ -57,11 +54,34 @@ li {
 img {
   position: absolute;
   bottom: 0rem;
+  height: 7rem;
 }
 
 @font-face {
   font-family: "Pokemon";
   src: url("./Pokemon\ Hollow.ttf");
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  position: relative;
+  margin: 5rem auto 0;
+}
+
+.search {
+  width: 50%;
+  margin: 2rem auto;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.header {
+  margin: 0 auto;
+  position: relative;
 }
 
 .id {
