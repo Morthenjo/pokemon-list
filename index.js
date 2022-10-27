@@ -55,6 +55,8 @@ submit.addEventListener("click", (e) => {
   newArr.forEach((poke) => {
     renderPokemon(poke);
   });
+  console.log("clicked");
+  console.log(input);
 });
 
 function renderPokemon(data) {
