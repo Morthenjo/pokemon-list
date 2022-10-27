@@ -132,6 +132,12 @@ img {
   font-size: 2rem;
 }
 
+@media (max-width: 425px) {
+  .name {
+    top: -3rem;
+  }
+}
+
 :hover.name {
   font-size: 3rem;
   top: -7rem;
