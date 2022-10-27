@@ -11,6 +11,11 @@ async function getPokemonName() {
   allData.forEach((pokemon) => {
     pokemonArr.push(pokemon);
   });
+  renderPokemon(pokemonArr[122]);
+  renderPokemon(pokemonArr[161]);
+  renderPokemon(pokemonArr[721]);
+  renderPokemon(pokemonArr[830]);
+  renderPokemon(pokemonArr[841]);
 }
 
 top.addEventListener("click", (e) => {
@@ -19,12 +24,18 @@ top.addEventListener("click", (e) => {
 
 button.addEventListener("keyup", (e) => {
   const newArr = pokemonArr.filter((pokemon) => {
-    return pokemon.species.name.includes(e.target.value) ? true : false;
+    return pokemon.id.toString() == e.target.value
+      ? true
+      : pokemon.species.name.includes(e.target.value) ||
+          pokemon.types[0].type.name.includes(e.target.value);
   });
   document.querySelector("#lol").replaceChildren();
-  newArr.forEach((poke) => {
-    renderPokemon(poke);
-  });
+  if (e.target.value === "") {
+    renderPokemon(pokemonArr[122]);
+  } else
+    newArr.forEach((poke) => {
+      renderPokemon(poke);
+    });
 });
 
 function renderPokemon(data) {
