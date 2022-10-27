@@ -38,6 +38,20 @@ button.addEventListener("keyup", (e) => {
     });
 });
 
+function submit() {
+  document.querySelector("#lol").replaceChildren();
+  const input = document.querySelector("search").value;
+  const newArr = pokemonArr.filter((pokemon) => {
+    return pokemon.id.toString() == input
+      ? true
+      : pokemon.species.name.includes(input) ||
+          pokemon.types[0].type.name.includes(input);
+  });
+  newArr.forEach((poke) => {
+    renderPokemon(poke);
+  });
+}
+
 function renderPokemon(data) {
   const li = document.createElement("li");
   const id = document.createElement("p");

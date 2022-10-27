@@ -74,10 +74,29 @@ img {
   z-index: 2;
   padding: 0.5rem 1rem;
   background-color: blue;
-  border: 1px gold solid;
+  border: 3px gold solid;
   color: white;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.submit {
+  width: 25%;
+  margin: 0 auto;
+  padding: 0.5rem;
+  background-color: blue;
+  border: 3px gold solid;
+  color: white;
+  font-size: 1.5rem;
+  transition: 0.3s all;
+}
+:hover.submit {
+  background-color: darkblue;
+  border: 3px yellow solid;
+}
+:active.submit {
+  background-color: rgb(27, 27, 177);
+  border: 3px rgb(189, 189, 2) solid;
 }
 
 .title {
@@ -87,7 +106,7 @@ img {
 
 .search {
   width: 50%;
-  margin: 2rem auto;
+  margin: 2rem auto 0;
   padding: 1rem 0;
   font-size: 1.5rem;
 }
