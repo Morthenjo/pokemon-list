@@ -67,6 +67,19 @@ img {
   flex-direction: column;
 }
 
+.top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0.5rem 1rem;
+  background-color: blue;
+  border: 1px gold solid;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .title {
   position: relative;
   margin: 5rem auto 0;
@@ -98,6 +111,12 @@ img {
   font-weight: bold;
   font-family: "Pokemon";
   font-size: 2rem;
+}
+
+:hover.name {
+  font-size: 3rem;
+  top: -7rem;
+  transition: 0.3s all;
 }
 
 .type1 {

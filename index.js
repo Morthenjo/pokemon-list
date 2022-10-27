@@ -1,5 +1,6 @@
 const pokemonArr = [];
 const button = document.getElementById("search");
+const top = document.getElementById("top");
 async function getPokemonName() {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1200");
   const data = await response.json();
@@ -10,15 +11,17 @@ async function getPokemonName() {
   allData.forEach((pokemon) => {
     pokemonArr.push(pokemon);
   });
-  console.log(pokemonArr);
 }
 
+top.addEventListener("click", (e) => {
+  window.scrollTo(0, 0);
+});
+
 button.addEventListener("keyup", (e) => {
-  console.log(e.target.value);
   const newArr = pokemonArr.filter((pokemon) => {
     return pokemon.species.name.includes(e.target.value) ? true : false;
   });
-  document.getElementById("lol").innerHTML = "";
+  document.querySelector("#lol").replaceChildren();
   newArr.forEach((poke) => {
     renderPokemon(poke);
   });
