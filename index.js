@@ -42,7 +42,7 @@ button.addEventListener("keyup", (e) => {
     });
 });
 
-document.getElementById("submit").onclick = submit;
+document.getElementById("submit").onchange = submit;
 
 function submit() {
   document.querySelector("#lol").replaceChildren();
