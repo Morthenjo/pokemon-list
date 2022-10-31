@@ -43,7 +43,7 @@ button.addEventListener("keyup", (e) => {
     });
 });
 
-submit.addEventListener("click touchstart", (e) => {
+submit.addEventListener("touchstart", (e) => {
   document.querySelector("#lol").replaceChildren();
   const input = document.querySelector("#search").value;
   const newArr = pokemonArr.filter((pokemon) => {
