@@ -49,10 +49,10 @@ function submit(e) {
   document.querySelector("#lol").replaceChildren();
   const input = document.querySelector("#search").value;
   const newArr = pokemonArr.filter((pokemon) => {
-    return pokemon.id.toString() == input
-      ? true
-      : pokemon.species.name.includes(input) ||
-          pokemon.types[0].type.name.includes(input);
+    return (
+      pokemon.species.name.includes(input) ||
+      pokemon.types[0].type.name.includes(input)
+    );
   });
   newArr.forEach((poke) => {
     renderPokemon(poke);
@@ -63,7 +63,7 @@ function submit(e) {
 }
 
 // button2.addEventListener("click", submit);
-button2.addEventListener("touchend", submit);
+button2.addEventListener("onmousedown", submit);
 
 function renderPokemon(data) {
   const li = document.createElement("li");
