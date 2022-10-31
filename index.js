@@ -2,6 +2,7 @@ const pokemonArr = [];
 const button = document.getElementById("search");
 const top = document.getElementById("top");
 const button2 = document.getElementById("submit");
+const results = document.getElementById("result");
 async function getPokemonName() {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1200");
   const data = await response.json();
@@ -43,7 +44,8 @@ top.addEventListener("click", (e) => {
 //     });
 // });
 
-function submit() {
+function submit(e) {
+  e.preventDefault();
   document.querySelector("#lol").replaceChildren();
   const input = document.querySelector("#search").value;
   const newArr = pokemonArr.filter((pokemon) => {
@@ -54,13 +56,14 @@ function submit() {
   });
   newArr.forEach((poke) => {
     renderPokemon(poke);
+    results.textContent = `${newArr.length} Results found`;
   });
   console.log(newArr);
   console.log(input);
 }
 
-button2.addEventListener("click", submit);
-button2.addEventListener("touch", submit);
+// button2.addEventListener("click", submit);
+button2.addEventListener("touchend", submit);
 
 function renderPokemon(data) {
   const li = document.createElement("li");
