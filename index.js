@@ -58,7 +58,6 @@ function submit(e) {
     renderPokemon(poke);
   });
   results.textContent = `${newArr.length} Results found`;
-  console.log(newArr);
   console.log(input);
 }
 
