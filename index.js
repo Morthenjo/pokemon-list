@@ -42,23 +42,21 @@ button.addEventListener("keyup", (e) => {
     });
 });
 
-document.getElementById("submit").onchange = submit;
-
-function submit() {
+submit.addEventListener("touchend", (e) => {
   document.querySelector("#lol").replaceChildren();
   const input = document.querySelector("#search").value;
   const newArr = pokemonArr.filter((pokemon) => {
-    return pokemon.id.toString() == input
-      ? input
-      : pokemon.species.name.includes(input) ||
-          pokemon.types[0].type.name.includes(input);
+    return (
+      pokemon.species.name.includes(input) ||
+      pokemon.types[0].type.name.includes(input)
+    );
   });
   newArr.forEach((poke) => {
     renderPokemon(poke);
   });
-  console.log("clicked");
+  console.log(newArr);
   console.log(input);
-}
+});
 
 function renderPokemon(data) {
   const li = document.createElement("li");
