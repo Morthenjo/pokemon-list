@@ -63,7 +63,7 @@ function submit(e) {
 }
 
 // button2.addEventListener("click", submit);
-button2.addEventListener("mousedown", submit);
+button2.addEventListener("touch", submit);
 
 function renderPokemon(data) {
   const li = document.createElement("li");
