@@ -28,8 +28,8 @@ button.addEventListener("keyup", (e) => {
   const newArr = pokemonArr.filter((pokemon) => {
     return pokemon.id.toString() == e.target.value
       ? true
-      : pokemon.species.name.includes(e.target.value) ||
-          pokemon.types[0].type.name.includes(e.target.value);
+      : pokemon.species.name.includes(e.target.value.toLowerCase()) ||
+          pokemon.types[0].type.name.includes(e.target.value.toLowerCase());
   });
   document.querySelector("#lol").replaceChildren();
   if (e.target.value === "") {
@@ -52,8 +52,8 @@ function submit(e) {
   const newArr = pokemonArr.filter((pokemon) => {
     return pokemon.id.toString() == input
       ? true
-      : pokemon.species.name.includes(input) ||
-          pokemon.types[0].type.name.includes(input);
+      : pokemon.species.name.includes(input.toLowerCase()) ||
+          pokemon.types[0].type.name.includes(input.toLowerCase());
   });
   newArr.forEach((poke) => {
     renderPokemon(poke);
