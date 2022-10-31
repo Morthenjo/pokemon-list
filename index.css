@@ -89,6 +89,7 @@ img {
   color: white;
   font-size: 1.5rem;
   transition: 0.3s all;
+  display: none;
 }
 :hover.submit {
   background-color: darkblue;
@@ -135,6 +136,12 @@ img {
 @media (max-width: 425px) {
   .name {
     top: -3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .submit {
+    display: block;
   }
 }
 
