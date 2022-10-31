@@ -49,7 +49,7 @@ function submit() {
   const input = document.querySelector("#search").value;
   const newArr = pokemonArr.filter((pokemon) => {
     return pokemon.id.toString() == input
-      ? true
+      ? input
       : pokemon.species.name.includes(input) ||
           pokemon.types[0].type.name.includes(input);
   });
@@ -59,8 +59,6 @@ function submit() {
   console.log("clicked");
   console.log(input);
 }
-
-submit();
 
 function renderPokemon(data) {
   const li = document.createElement("li");
