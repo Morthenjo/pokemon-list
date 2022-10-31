@@ -56,14 +56,14 @@ function submit(e) {
   });
   newArr.forEach((poke) => {
     renderPokemon(poke);
-    results.textContent = `${newArr.length} Results found`;
   });
+  results.textContent = `${newArr.length} Results found`;
   console.log(newArr);
   console.log(input);
 }
 
 // button2.addEventListener("click", submit);
-button2.addEventListener("onmousedown", submit);
+button2.addEventListener("mousedown", submit);
 
 function renderPokemon(data) {
   const li = document.createElement("li");
