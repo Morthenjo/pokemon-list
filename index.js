@@ -24,44 +24,43 @@ top.addEventListener("click", (e) => {
   window.scrollTo(0, 0);
 });
 
-// button.addEventListener("keyup", (e) => {
-//   const newArr = pokemonArr.filter((pokemon) => {
-//     return pokemon.id.toString() == e.target.value
-//       ? true
-//       : pokemon.species.name.includes(e.target.value) ||
-//           pokemon.types[0].type.name.includes(e.target.value);
-//   });
-//   document.querySelector("#lol").replaceChildren();
-//   if (e.target.value === "") {
-//     renderPokemon(pokemonArr[122]);
-//     renderPokemon(pokemonArr[161]);
-//     renderPokemon(pokemonArr[721]);
-//     renderPokemon(pokemonArr[830]);
-//     renderPokemon(pokemonArr[841]);
-//   } else
-//     newArr.forEach((poke) => {
-//       renderPokemon(poke);
-//     });
-// });
+button.addEventListener("keyup", (e) => {
+  const newArr = pokemonArr.filter((pokemon) => {
+    return pokemon.id.toString() == e.target.value
+      ? true
+      : pokemon.species.name.includes(e.target.value) ||
+          pokemon.types[0].type.name.includes(e.target.value);
+  });
+  document.querySelector("#lol").replaceChildren();
+  if (e.target.value === "") {
+    renderPokemon(pokemonArr[122]);
+    renderPokemon(pokemonArr[161]);
+    renderPokemon(pokemonArr[721]);
+    renderPokemon(pokemonArr[830]);
+    renderPokemon(pokemonArr[841]);
+  } else
+    newArr.forEach((poke) => {
+      renderPokemon(poke);
+    });
+  results.textContent = `${newArr.length} Results found`;
+});
 
 function submit(e) {
   e.preventDefault();
   document.querySelector("#lol").replaceChildren();
   const input = document.querySelector("#search").value;
   const newArr = pokemonArr.filter((pokemon) => {
-    return (
-      pokemon.species.name.includes(input) ||
-      pokemon.types[0].type.name.includes(input)
-    );
+    return pokemon.id.toString() == input
+      ? true
+      : pokemon.species.name.includes(input) ||
+          pokemon.types[0].type.name.includes(input);
   });
   newArr.forEach((poke) => {
     renderPokemon(poke);
   });
   results.textContent = `${newArr.length} Results found`;
-  console.log(input);
 }
 
-// button2.addEventListener("click", submit);
 button2.addEventListener("touchend", submit);
 
 function renderPokemon(data) {
