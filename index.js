@@ -24,17 +24,6 @@ top.addEventListener("click", (e) => {
   window.scrollTo(0, 0);
 });
 
-// let prevScrollpos = window.pageYOffset;
-// window.onscroll = function () {
-//   let currentScrollPos = window.pageYOffset;
-//   if (prevScrollpos > currentScrollPos) {
-//     document.getElementById("top").style.bottom = "0px";
-//   } else {
-//     document.getElementById("top").style.bottom = "0px";
-//   }
-//   prevScrollpos = currentScrollPos;
-// };
-
 window.addEventListener("scroll", (e) => {
   if (window.scrollY > 400) {
     top.style.bottom = "0";
@@ -57,11 +46,16 @@ button.addEventListener("keyup", (e) => {
     renderPokemon(pokemonArr[721]);
     renderPokemon(pokemonArr[830]);
     renderPokemon(pokemonArr[841]);
+  } else if (e.target.value == "all") {
+    pokemonArr.forEach((arr) => {
+      renderPokemon(arr);
+    });
+    results.textContent = `${pokemonArr.length} Results found`;
   } else
     newArr.forEach((poke) => {
       renderPokemon(poke);
+      results.textContent = `${newArr.length} Results found`;
     });
-  results.textContent = `${newArr.length} Results found`;
 });
 
 function submit(e) {
