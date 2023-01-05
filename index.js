@@ -14,7 +14,11 @@ async function getPokemonName() {
   allData.forEach((pokemon) => {
     pokemonArr.push(pokemon);
   });
-  console.log(pokemonArr);
+  renderPokemon(pokemonArr[122]);
+  renderPokemon(pokemonArr[161]);
+  renderPokemon(pokemonArr[721]);
+  renderPokemon(pokemonArr[830]);
+  renderPokemon(pokemonArr[841]);
 }
 
 top.addEventListener("click", (e) => {
@@ -110,9 +114,5 @@ function renderPokemon(data) {
   li.append(id, image, name, type1, type2);
   lolUl.append(li);
 }
-
-// localStorage.getItem("pokmon")
-//   ? pokemonArr.push(localStorage.getItem("pokmon"))
-//   : getPokemonName();
 
 getPokemonName();
